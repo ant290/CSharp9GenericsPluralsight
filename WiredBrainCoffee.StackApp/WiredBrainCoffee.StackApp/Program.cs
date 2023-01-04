@@ -1,19 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-var stack = new SimpleStack();
-stack.Push(1.2);
-stack.Push(2.8);
-stack.Push(3.0);
+StackDoubles();
+StackStrings();
+Console.ReadLine();
 
-double sum = 0.0;
-
-while (stack.Count > 0)
+void StackDoubles()
 {
-    var item = stack.Pop();
-    Console.WriteLine($"Item: {item}");
-    sum += item;
+    var stack = new SimpleStack<double>();
+    stack.Push(1.2);
+    stack.Push(2.8);
+    stack.Push(3.0);
+
+    double sum = 0.0;
+
+    while (stack.Count > 0)
+    {
+        var item = stack.Pop();
+        Console.WriteLine($"Item: {item}");
+        sum += item;
+    }
+
+    Console.WriteLine($"Sum: {sum}");
 }
 
-Console.WriteLine($"Sum: {sum}");
-Console.ReadLine();
+void StackStrings()
+{
+    var stack = new SimpleStack<string>();
+    stack.Push("Wired Brain Coffee");
+    stack.Push("Pluralsight");
+}
